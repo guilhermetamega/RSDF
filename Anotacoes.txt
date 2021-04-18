@@ -1,0 +1,45 @@
+17/04
+
+Projeto com aplicações de conceitos de Front-end.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<Conceitos:>
+
+-O que é um Dev?
+É uma pessoa que desenvolve soluções relacionadas a processos e fluxos de trabalho, visando reduzir tempo e viabilizar projetos;
+
+-Mercado:
+->Local: O mercado local visa criar e trabalhar em aplicações no meio próximo a você;
+->Global: O mercado global visa criar e trabalhar em aplicações por todo o mundo, mesmo dentro de casa, tendo o inglês como necessidade por ser uma língua padrão;
+
+-Skills:
+->Soft skills: Habilidades "padrão" humanas, como comunicação, interação social, etc;
+->Hard skills: É tudo aquilo que é técnico, conhecimento específico sobre uma determinada área;
+
+-Tecnologias
+A tecnologia é algo momentâneo, e como dev é necessário evoluir junto com as tecnologias do mercado;
+
+-Especialista x Generalista:
+->Especialista: Profissional voltado para uma área específica, focando seu conhecimento nessa determinada área;
+->Generalista: Profissional voltado para diversas áreas, pode conhecer mais sobre uma em específico, mas possui conhecimento funcional sobre outras áreas, sendo mais verátil;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<Organização:>
+
+Para se manter atualizado é necessário se manter em constante atualização, e para isso o estudo é necessário, por isso diversos devs utilizam formas de organização de estudos;
+Uma delas é a "Pomodoro", consistindo em a cada 15~25 minutos fazer uma pausa de 5 para descansar e ter um relaxamento rápido. Distraindo o cérebro com algo que não é o que estava focado;
+A base do processo é de 4 ciclos de 5 minutos de pausa e um mais longo no final de cerca de 15 minutos para um relaxamento e recuperação maior;
+
+-Aprendizado Passivo x Ativo:
+->Passivo: Se questionar sobre o que se é ouvido mantendo o cérebro em atividade;
+->Ativo: Fazer anotações e repetir o que é mostrado, raciocinando o que se é aprendido;
+
+Pesquisar tudo aquilo que não se entendeu é importante para se sanar dúvidas e manter o raciocínio;
+
+-Memória x Reconhecimento:
+->Memória: Conhecer e entender o processo;
+->Reconhecimento: Perceber que já viu algo e não ter o conhecimento necessário para explicar;
+
+Programar é encontrar soluções para problemas propostos ou intríncicos;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
