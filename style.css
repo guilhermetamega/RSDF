@@ -1,0 +1,139 @@
+/*Css de estilos para o index*/
+:root{
+    --color-dark:rgb(70, 41, 65);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Body*/
+body{
+    background-color: #d0d1d4;
+    font-family: 'Antonio', sans-serif;
+}
+.container{
+    width: min(90vw,800px);
+    margin: auto;
+}
+
+/*Titles*/
+h2{
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color:var(--color-dark);
+    font-weight: normal;
+}
+
+/*Header*/
+header{
+    background-color: rgb(224, 188, 223);
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+#logo{
+    color: #000;
+    font-weight: 1000;
+}
+
+/*Balance*/
+#balance{
+    margin-top: -8rem;
+}
+#balance h2{
+    color: var(--color-dark);
+    margin-top: 0;
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+/*Cards*/
+.card{
+    background-color:white ;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+
+}
+.card h3{
+    font-weight: normal;
+    font-size: 1rem;
+}
+.card p{
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+}
+.card.green{
+    background-color: rgb(99, 189, 99);
+    color: white;
+}
+.card.red{
+    background-color: rgb(185, 94, 94);
+    color: white;
+}
+
+.card.blue{
+    background-color: rgb(94, 115, 185);
+}
+
+/*Table*/
+#data-table{
+    width: 100%;
+    border-spacing: 0 0.5rem;
+}
+
+table thead th:first-child,
+table tbody td:first-child{
+    border-radius: 15px 0 0 15px;
+}
+
+table th{
+    background-color: white;
+    opacity: 0.6;
+    color: var(--color-dark);
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+table tr:hover{
+    background-color: rgb(224, 188, 223);
+    opacity: 1;
+}
+table tr{
+    opacity: 0.7;
+}
+
+table td:hover{
+    background-color: rgb(255, 238, 254);
+    opacity: 1;
+}
+table td{
+    opacity: 0.5;
+}
+
+table tbody td{
+    background-color: white;
+    padding: 1rem 2rem;
+    font-weight: normal;
+}
+
+td.descripition{
+    color: var(--color-dark);
+}
+td.income{
+    color: rgb(99, 189, 99);
+}
+td.expense{
+    color: rgb(185, 94, 94);
+}
+
+/*Footer*/
+footer{
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--color-dark);
+    opacity: 0.6;
+}

@@ -9,29 +9,32 @@
     <title>O Banco</title>
     <link rel="shortcut icon" href="favicon.ico">
     <!--Adicionando favicon ao site-->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1 id="logo"><em>O Banco</em></h1>
+        <h1 id="logo">O Banco</h1>
     </header>
 
-    <main>
+    <main class="container">
 
         <section id="balance">
             <h2>Balanço</h2>
 
-            <div class="card">
+            <div class="card green">
                 <h3>Entradas</h3>
                 <p>R$5.000,00</p>
             </div>
 
-            <div class="card">
+            <div class="card red">
                 <h3>Saídas</h3>
                 <p>R$2.000,00</p>
             </div>
 
-            <div class="card">
+            <div class="card blue">
                 <h3>Total</h3>
                 <p>R$3.000,00</p>
             </div>
@@ -51,19 +54,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Luz</td>
-                        <td>-R$500,00</td>
-                        <td>20/01/2021</td>
+                        <td class="descripition">Luz</td>
+                        <td class="expense">-R$500,00</td>
+                        <td class="date">20/01/2021</td>
                     </tr>
                     <tr>
-                        <td>Água</td>
-                        <td>-R$200,00</td>
-                        <td>23/01/2021</td>
+                        <td class="descripition">Água</td>
+                        <td class="expense">-R$200,00</td>
+                        <td class="date">23/01/2021</td>
                     </tr>
                     <tr>
-                        <td>Criação de Site</td>
-                        <td>R$5000,00</td>
-                        <td>25/01/2021</td>
+                        <td class="descripition">Criação de Site</td>
+                        <td class="income">R$5000,00</td>
+                        <td class="date">25/01/2021</td>
                     </tr>
                 </tbody>
             </table>
@@ -71,7 +74,7 @@
 
     </main>
 
-    <footer>
+    <footer class="container">
         O Banco
     </footer>
 </body>
