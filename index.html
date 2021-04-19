@@ -22,27 +22,38 @@
     <main class="container">
 
         <section id="balance">
-            <h2>Balanço</h2>
+            <h2 class="sr-only">Balanço</h2>
 
             <div class="card green">
-                <h3>Entradas</h3>
+                <h3>
+                    <span>Entradas</span>
+                    <img src="./assets/income.svg" alt="Imagem de entradas monetárias">
+                </h3>
                 <p>R$5.000,00</p>
             </div>
 
             <div class="card red">
-                <h3>Saídas</h3>
+                <h3>
+                    <span>Saídas</span>
+                    <img src="./assets/expense.svg" alt="Imagem de saídas monetárias">
+                </h3>
                 <p>R$2.000,00</p>
             </div>
 
             <div class="card blue">
-                <h3>Total</h3>
+                <h3>
+                    <span>Total</span>
+                    <img src="./assets/total.svg" alt="Imagem de total monetário">
+                </h3>
                 <p>R$3.000,00</p>
             </div>
 
         </section>
 
         <section id="transaction">
-            <h2>Transações</h2>
+            <h2 class="sr-only">Transações</h2>
+
+            <a href="#" onclick="Modal.open()" class="button new">+ Nova transação</a>
 
             <table id="data-table">
                 <thead>
@@ -50,6 +61,7 @@
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Data</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,26 +69,67 @@
                         <td class="descripition">Luz</td>
                         <td class="expense">-R$500,00</td>
                         <td class="date">20/01/2021</td>
+                        <td>
+                            <img src="./assets/minus.svg" alt="Remover transação">
+                        </td>
                     </tr>
                     <tr>
                         <td class="descripition">Água</td>
                         <td class="expense">-R$200,00</td>
                         <td class="date">23/01/2021</td>
+                        <td>
+                            <img src="./assets/minus.svg" alt="Remover transação">
+                        </td>
                     </tr>
                     <tr>
                         <td class="descripition">Criação de Site</td>
                         <td class="income">R$5000,00</td>
                         <td class="date">25/01/2021</td>
+                        <td>
+                            <img src="./assets/minus.svg" alt="Remover transação">
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </section>
-
     </main>
 
-    <footer class="container">
-        O Banco
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="form">
+                <h2 class="form-h2">Nova Transação</h2>
+                <form action="">
+                    <div class="input-group">
+                        <label class="sr-only" for="descripition">Descrição</label>
+                        <input type=" text " name="description" id="description" placeholder="Descrição">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="sr-only" for="amount">Valor</label>
+                        <input type="number" step="0.01" name="amount" id="amount" placeholder="Valor">
+                        <small>Use o sinal "-" para despesas e  "," para casas decimais.</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="sr-only" for="date">Data</label>
+                        <input type="date" step="0.01" name="date" id="date" placeholder="Data">
+                    </div>
+
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button>Salvar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container ">
+        2021 - O Banco
     </footer>
+
+    <script src="./script.js"></script>
 </body>
 
 </html>
