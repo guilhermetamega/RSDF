@@ -22,6 +22,43 @@ body {
     font-family: 'Antonio', sans-serif;
 }
 
+.topnav {
+    background-color: rgb(224, 188, 223);
+    overflow: hidden;
+}
+
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+/* Change the color of links on hover */
+
+.topnav a:hover {
+    background-color: rgb(172, 143, 171);
+    color: var(--color-dark);
+}
+
+
+/* Add a color to the active/current link */
+
+.topnav a.active {
+    background-color: rgb(172, 143, 171);
+    color: white;
+}
+
+.topnav a.active:hover {
+    color: var(--color-dark);
+}
+
 
 /*Trick para deixar textos invísiveis pros olhos, mas possíveis de serem lidos em leitores de tela*/
 
