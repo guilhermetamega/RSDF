@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Banco</title>
+    <title>A Lista</title>
     <link rel="shortcut icon" href="favicon.ico">
     <!--Adicionando favicon ao site-->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style_list.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;700&display=swap" rel="stylesheet">
 </head>
@@ -17,8 +17,8 @@
 <body>
     <header>
         <div class="topnav">
-            <h1 id="logo">O Banco</h1>
-            <a class="active" href="#home">Registros Bancários</a>
+            <h1 id="logo">A Lista</h1>
+            <a class="active" href="./index.html">Registros Bancários</a>
             <a href="./list.html">Lista de Tarefas</a>
             <a href="#data-table">Transações</a>
             <a href="#about">Teste</a>
@@ -28,11 +28,11 @@
     <main class="container">
 
         <section id="balance">
-            <h2 class="sr-only">Balanço</h2>
+            <h2 class="sr-only">Tarefa Importante</h2>
 
             <div class="card green">
                 <h3>
-                    <span>Entradas</span>
+                    <span>Tarefa Importante</span>
                     <img src="./assets/income.svg" alt="Imagem de entradas monetárias">
                 </h3>
                 <p id="incomeDisplay"></p>
@@ -40,7 +40,7 @@
 
             <div class="card red">
                 <h3>
-                    <span>Saídas</span>
+                    <span>Última Tarefa</span>
                     <img src="./assets/expense.svg" alt="Imagem de saídas monetárias">
                 </h3>
                 <p id="expenseDisplay"></p>
@@ -48,7 +48,7 @@
 
             <div class="card blue">
                 <h3>
-                    <span>Total</span>
+                    <span>Quantidade de Tarefas</span>
                     <img src="./assets/total.svg" alt="Imagem de total monetário">
                 </h3>
                 <p id="totalDisplay"></p>
@@ -59,14 +59,15 @@
         <section id="transaction">
             <h2 class="sr-only">Transações</h2>
 
-            <a href="#" onclick="Modal.open()" class="button new">+ Nova transação</a>
+            <a href="#" onclick="Modal.open()" class="button new">+ Nova Tarefa</a>
 
             <table id="data-table">
                 <thead>
                     <tr>
-                        <th>Descrição</th>
+                        <th>Tarefa</th>
                         <th>Valor</th>
-                        <th>Data</th>
+                        <th>Data Inicial</th>
+                        <th>Data Final</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -80,22 +81,26 @@
     <div class="modal-overlay">
         <div class="modal">
             <div class="form">
-                <h2 class="form-h2">Nova Transação</h2>
+                <h2 class="form-h2">Nova Tarefa</h2>
                 <form action="" onsubmit="Form.submit(event)">
                     <div class="input-group">
-                        <label class="sr-only" for="description">Descrição</label>
-                        <input type=" text " name="description" id="description" placeholder="Descrição">
+                        <label class="guide" for="task">Tarefa:</label>
+                        <input type=" text " name="task" id="task" placeholder="Tarefa">
                     </div>
 
                     <div class="input-group">
-                        <label class="sr-only" for="amount">Valor</label>
+                        <label class="guide" for="amount">Valor:</label>
                         <input type="number" step="0.01" name="amount" id="amount" placeholder="Valor">
-                        <small>Use o sinal "-" para despesas e  "," para casas decimais.</small>
                     </div>
 
                     <div class="input-group">
-                        <label class="sr-only" for="date">Data</label>
-                        <input type="date" step="0.01" name="date" id="date" placeholder="Data">
+                        <label class="guide" for="date-initial">Data:</label>
+                        <input type="date" step="0.01" name="date-initial" id="date-initial" placeholder="Data">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="guide" for="date-final">Data:</label>
+                        <input type="date" step="0.01" name="date-final" id="date-final" placeholder="Data">
                     </div>
 
                     <div class="input-group actions">
@@ -109,10 +114,10 @@
     </div>
 
     <footer class="container ">
-        2021 - O Banco
+        2021 - A Lista
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="./script_list.js"></script>
 </body>
 
 <!--

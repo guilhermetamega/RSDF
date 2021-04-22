@@ -23,7 +23,7 @@ body {
 }
 
 .topnav {
-    background-color: rgb(224, 188, 223);
+    background-color: rgb(117, 172, 245);
     overflow: hidden;
 }
 
@@ -43,7 +43,7 @@ body {
 /* Change the color of links on hover */
 
 .topnav a:hover {
-    background-color: rgb(172, 143, 171);
+    background-color: rgb(95, 141, 201);
     color: var(--color-dark);
 }
 
@@ -51,7 +51,7 @@ body {
 /* Add a color to the active/current link */
 
 .topnav a.active {
-    background-color: rgb(172, 143, 171);
+    background-color: rgb(95, 141, 201);
     color: white;
 }
 
@@ -145,7 +145,7 @@ button:hover {
 /*Header -------------------------------------------------------------------------------*/
 
 header {
-    background-color: rgb(224, 188, 223);
+    background-color: rgb(117, 172, 245);
     padding: 2rem 0 10rem;
     text-align: center;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
@@ -154,8 +154,9 @@ header {
 #logo {
     color: rgb(255, 255, 255);
     font-weight: 1000;
-    box-sizing: content-box;
-    text-shadow: 0px 3px 5px rgba(49, 9, 26, 0.5);
+    background-color: rgb(117, 172, 245);
+    text-shadow: 0px 3px 5px rgb(51, 75, 107);
+    ;
 }
 
 
@@ -303,6 +304,12 @@ td.expense {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+}
+
+.guide {
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: rgb(255, 0, 0);
 }
 
 .modal-overlay.active {
