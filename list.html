@@ -1,126 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<!--Definindo que o conteúdo da página está em Português do Brasil-->
+  <!--Definindo que o conteúdo da página está em Português do Brasil-->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Lista</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico" />
     <!--Adicionando favicon ao site-->
-    <link rel="stylesheet" href="./style_list.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="./style_list.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="topnav">
-            <h1 id="logo">A Lista</h1>
-            <a class="active" href="./index.html">Registros Bancários</a>
-            <a href="./list.html">Lista de Tarefas</a>
-            <a href="#data-table">Transações</a>
-            <a href="#about">Teste</a>
-        </div>
+      <div class="topnav">
+        <h1 id="logo">A Lista</h1>
+        <a class="page1" href="./index.html">Registros Bancários</a>
+        <a class="page2" href="./list.html">Lista de Tarefas</a>
+        <a class="page3" href="#data-table">Transações</a>
+        <a class="page4" href="#about">Teste</a>
+      </div>
     </header>
 
     <main class="container">
+      <section id="balance">
+        <h2 class="sr-only">Tarefa Importante</h2>
 
-        <section id="balance">
-            <h2 class="sr-only">Tarefa Importante</h2>
+        <div class="card green">
+          <h3>
+            <span>Tarefas Importantes</span>
+            <img
+              src="./assets/yellowStar.svg"
+              class="svg"
+              alt="Imagem de entradas monetárias"
+            />
+          </h3>
+          <p id="mainTasksDisplay"></p>
+        </div>
 
-            <div class="card green">
-                <h3>
-                    <span>Tarefa Importante</span>
-                    <img src="./assets/income.svg" alt="Imagem de entradas monetárias">
-                </h3>
-                <p id="incomeDisplay"></p>
-            </div>
+        <div class="card red">
+          <h3>
+            <span>Última Tarefa</span>
+            <img src="./assets/expense.svg" alt="Imagem de saídas monetárias" />
+          </h3>
+          <p id="completeTasksDisplay"></p>
+        </div>
 
-            <div class="card red">
-                <h3>
-                    <span>Última Tarefa</span>
-                    <img src="./assets/expense.svg" alt="Imagem de saídas monetárias">
-                </h3>
-                <p id="expenseDisplay"></p>
-            </div>
+        <div class="card blue">
+          <h3>
+            <span>Quantidade de Tarefas</span>
+            <img src="./assets/total.svg" alt="Imagem de total monetário" />
+          </h3>
+          <p id="totalDisplay"></p>
+        </div>
+      </section>
 
-            <div class="card blue">
-                <h3>
-                    <span>Quantidade de Tarefas</span>
-                    <img src="./assets/total.svg" alt="Imagem de total monetário">
-                </h3>
-                <p id="totalDisplay"></p>
-            </div>
+      <section id="transaction">
+        <h2 class="sr-only">Transações</h2>
 
-        </section>
+        <a href="#" onclick="Modal.open()" class="button new">+ Nova Tarefa</a>
 
-        <section id="transaction">
-            <h2 class="sr-only">Transações</h2>
-
-            <a href="#" onclick="Modal.open()" class="button new">+ Nova Tarefa</a>
-
-            <table id="data-table">
-                <thead>
-                    <tr>
-                        <th>Tarefa</th>
-                        <th>Valor</th>
-                        <th>Data Inicial</th>
-                        <th>Data Final</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </section>
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>Favorito</th>
+              <th>Tarefa</th>
+              <th>Data Inicial</th>
+              <th>Data Final</th>
+              <th>Remover Item</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
     </main>
 
+    <!--<button onclick="myFunction()">Click Me</button>
+
+    <div id="myDIV">
+        This is my DIV element.
+    </div>-->
+
     <div class="modal-overlay">
-        <div class="modal">
-            <div class="form">
-                <h2 class="form-h2">Nova Tarefa</h2>
-                <form action="" onsubmit="Form.submit(event)">
-                    <div class="input-group">
-                        <label class="guide" for="task">Tarefa:</label>
-                        <input type=" text " name="task" id="task" placeholder="Tarefa">
-                    </div>
-
-                    <div class="input-group">
-                        <label class="guide" for="amount">Valor:</label>
-                        <input type="number" step="0.01" name="amount" id="amount" placeholder="Valor">
-                    </div>
-
-                    <div class="input-group">
-                        <label class="guide" for="date-initial">Data:</label>
-                        <input type="date" step="0.01" name="date-initial" id="date-initial" placeholder="Data">
-                    </div>
-
-                    <div class="input-group">
-                        <label class="guide" for="date-final">Data:</label>
-                        <input type="date" step="0.01" name="date-final" id="date-final" placeholder="Data">
-                    </div>
-
-                    <div class="input-group actions">
-                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
-                        <button>Salvar</button>
-                    </div>
-
-                </form>
+      <div class="modal">
+        <div class="form">
+          <h2 class="form-h2">Nova Tarefa</h2>
+          <form action="" onsubmit="Form.submit(event)">
+            <div class="input-group">
+              <label class="guide" for="task">Tarefa:</label>
+              <input type=" text " name="task" id="task" placeholder="Tarefa" />
             </div>
+
+            <div class="input-group">
+              <label class="guide" for="date-initial">Data Inicial:</label>
+              <input
+                type="date"
+                step="0.01"
+                name="date-initial"
+                id="date-initial"
+                placeholder="Data"
+              />
+            </div>
+
+            <div class="input-group">
+              <label class="guide" for="date-final">Data Limite:</label>
+              <input
+                type="date"
+                step="0.01"
+                name="date-final"
+                id="date-final"
+                placeholder="Data"
+              />
+            </div>
+
+            <div class="input-group actions">
+              <a href="#" onclick="Modal.close()" class="button cancel"
+                >Cancelar</a
+              >
+              <button>Salvar</button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
 
-    <footer class="container ">
-        2021 - A Lista
-    </footer>
+    <footer class="container">2021 - A Lista</footer>
 
     <script src="./script_list.js"></script>
-</body>
+  </body>
 
-<!--
+  <!--
     <tr>
                         <td class="description">Luz</td>
                         <td class="expense">-R$500,00</td>
@@ -145,6 +160,4 @@
                             <img src="./assets/minus.svg" alt="Remover transação">
                         </td>
                     </tr>
--->
-
-</html>
+--></html>

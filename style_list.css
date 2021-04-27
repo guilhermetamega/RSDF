@@ -220,6 +220,11 @@ header {
     background-color: rgb(94, 115, 185);
 }
 
+.svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 
 /*Table -------------------------------------------------------------------------------*/
 
@@ -257,7 +262,7 @@ table th {
 }
 
 table tr:hover {
-    background-color: rgb(224, 188, 223);
+    background-color: rgb(117, 172, 245);
     opacity: 1;
 }
 
@@ -267,7 +272,7 @@ table tr {
 }
 
 table td:hover {
-    background-color: rgb(224, 188, 223);
+    background-color: rgb(117, 172, 245);
     opacity: 1;
 }
 
@@ -309,7 +314,7 @@ td.expense {
 .guide {
     font-weight: normal;
     font-size: 1.2rem;
-    color: rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .modal-overlay.active {

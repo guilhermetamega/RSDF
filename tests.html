@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href='#' id='count'>Incrementar contagem</a> <!-- botão -->
+
+<p>Total: 
+   <span class='badge'></span>                  <!-- total de favoritos -->
+</p>       
+</body>
+<script>var FAVORITES_KEY = 'fav';
+
+    /** Altera o texto da 'badge' com o total de Favoritos. */
+    function updateBadge(){
+        $('.badge').text(getFavoritesCount());
+    }
+    
+    /** Obtém o total de favoritos. */
+    function getFavoritesCount() {
+      var count = localStorage.getItem(FAVORITES_KEY);
+      return !count ? '0' : count;
+    }
+    
+    /** Adiciona '1' ao total de favoritos. */
+    function incrementFavorites(){
+      var count = parseInt(getFavoritesCount()) + 1;
+      localStorage.setItem(FAVORITES_KEY, count);
+    }
+    
+    // Quando '#count' for pressionado, é incrementado '1' ao total de
+    // Favoritos e atualizado a contagem em '.badge'.
+    $('#count').on('click', function(){
+      incrementFavorites();
+      updateBadge();
+      console.log(count)
+    });
+    
+    // É feita uma primeira chamada para exibir o '0' quando
+    // ainda não existir nenhum valor em 'FAVORITES_KEY'.
+    updateBadge();</script>
+</html>     
