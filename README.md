@@ -1,0 +1,1 @@
+- Problemas para salvar a preferência de favoritos
