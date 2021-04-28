@@ -1,46 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href='#' id='count'>Incrementar contagem</a> <!-- botão -->
+<html lang="pt-br">
+  <!--Definindo que o conteúdo da página está em Português do Brasil-->
 
-<p>Total: 
-   <span class='badge'></span>                  <!-- total de favoritos -->
-</p>       
-</body>
-<script>var FAVORITES_KEY = 'fav';
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testes</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!--Adicionando favicon ao site-->
+    <link rel="stylesheet" href="./style_list.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-    /** Altera o texto da 'badge' com o total de Favoritos. */
-    function updateBadge(){
-        $('.badge').text(getFavoritesCount());
-    }
-    
-    /** Obtém o total de favoritos. */
-    function getFavoritesCount() {
-      var count = localStorage.getItem(FAVORITES_KEY);
-      return !count ? '0' : count;
-    }
-    
-    /** Adiciona '1' ao total de favoritos. */
-    function incrementFavorites(){
-      var count = parseInt(getFavoritesCount()) + 1;
-      localStorage.setItem(FAVORITES_KEY, count);
-    }
-    
-    // Quando '#count' for pressionado, é incrementado '1' ao total de
-    // Favoritos e atualizado a contagem em '.badge'.
-    $('#count').on('click', function(){
-      incrementFavorites();
-      updateBadge();
-      console.log(count)
-    });
-    
-    // É feita uma primeira chamada para exibir o '0' quando
-    // ainda não existir nenhum valor em 'FAVORITES_KEY'.
-    updateBadge();</script>
-</html>     
+  <body>
+    <header>
+      <div class="topnav">
+        <h1 id="logo">Testes</h1>
+        <a class="page1" href="./index.html">Registros Bancários</a>
+        <a class="page2" href="./list.html">Lista de Tarefas</a>
+        <a class="page3" href="#data-table">Transações</a>
+        <a class="page4" href="#about">Teste</a>
+      </div>
+    </header>
+
+      <section id="transaction">
+        <h2 class="sr-only">Transações</h2>
+
+        <a href="#" onclick="Modal.open()" class="button new">+ Nova Tarefa</a>
+
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>Importante</th>
+              <th>Tarefa</th>
+              <th>Data Inicial</th>
+              <th>Data Final</th>
+              <th>Remover Item</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="form">
+          <h2 class="form-h2">Nova Tarefa</h2>
+          <form action="" onsubmit="Form.submit(event)">
+            <div class="input-group">
+              <label class="guide" for="task">Tarefa:</label>
+              <input type=" text " name="task" id="task" placeholder="Tarefa" />
+            </div>
+
+            <div class="input-group">
+              <label class="guide" for="date-initial">Data Inicial:</label>
+              <input
+                type="date"
+                step="0.01"
+                name="date-initial"
+                id="date-initial"
+                placeholder="Data"
+              />
+            </div>
+
+            <div class="input-group">
+              <label class="guide" for="date-final">Data Limite:</label>
+              <input
+                type="date"
+                step="0.01"
+                name="date-final"
+                id="date-final"
+                placeholder="Data"
+              />
+            </div>
+
+            <div class="input-group actions">
+              <a href="#" onclick="Modal.close()" class="button cancel"
+                >Cancelar</a
+              >
+              <button>Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">2021 - A Lista</footer>
+
+    <script src="./tests.js"></script>
+  </body>
+</html>

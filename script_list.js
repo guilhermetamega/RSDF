@@ -10,15 +10,6 @@ const Modal = {
   },
 };
 
-//function myFunction() {
-//    var x = document.getElementById("myDIV");
-//    if (x.style.display === "none") {
-//        x.style.display = "block";
-//    } else {
-//        x.style.display = "none";
-//    }
-//}
-
 const Page = {
   open() {
     //Abrir overlay de transações
@@ -34,6 +25,7 @@ const Storage = {
     localStorage.setItem("task:numbers", JSON.stringify(tasks));
   },
 };
+
 const Task = {
   all: Storage.get(),
   //Adiciona itens à lista
@@ -46,9 +38,36 @@ const Task = {
     Task.all.splice(index, 1);
     App.reload();
   },
-  favImage(index) {
-    document.querySelector(".fav").src = "./assets/yellowStar.svg";
-    document.querySelector(".fav").classList.add()
+  favImage() {
+    var list = document.querySelector("tbody");
+    list.addEventListener(
+      "click",
+      function (ev) {
+        if ((ev.target.tagName = "img")) {
+          if (ev.target.matches(".fav")) {
+            ev.target.src = "./assets/yellowStar.svg";
+          } else {
+            ev.target.src = "./assets/rawStar.svg";
+          }
+        }
+      },
+      false
+    );
+  },
+
+  star() {
+    var list = document.querySelector("tbody");
+    list.addEventListener(
+      "click",
+      function (ev) {
+        if ((ev.target.tagName = "img")) {
+          ev.target.classList.toggle("fav");
+        }
+      },
+      false
+    );
+    Task.favImage();
+    localStorage.setItem("teste:teste", Task.stars);
   },
 };
 
@@ -62,17 +81,9 @@ const DOM = {
   tasksContainer: document.querySelector("#data-table tbody"),
   addTask(task, index) {
     const tr = document.createElement("tr");
-    tr.innerHTML = DOM.innerHTMLTask(task, index);
-    tr.dataset.index = index;
-
-    DOM.tasksContainer.appendChild(tr);
-  },
-  //Função que é responsável por criar a transação no html
-  innerHTMLTask(task, index) {
-    //Ao se usar ${} dentro de `` pode-se puxar variáveis de fora de um "texto"
     const html = `
-                <td onclick = "Task.favImage()">
-                <img src="./assets/rawstar.svg" alt="Minha linda imagem em SVG" class="fav svg">
+                <td>
+                <img onclick = "Task.star()" src="./assets/rawstar.svg" alt="Favorito" class="svg star">
                 </td>
                 <td class="descripition">${task.description}</td>
                 <td class="date-initial">${task.date_i}</td>
@@ -81,8 +92,27 @@ const DOM = {
                     <img src="./assets/minus.svg" alt="Remover Tarefa">
                 </td>
         `;
-    return html;
+    tr.innerHTML = html;
+    tr.dataset.index = index;
+
+    DOM.tasksContainer.appendChild(tr);
   },
+  //Função que é responsável por criar a transação no html
+  // innerHTMLTask(task, index) {
+  //   //Ao se usar ${} dentro de `` pode-se puxar variáveis de fora de um "texto"
+  //   const html = `
+  //               <td onclick = "Task.favImage()">
+  //               <img src="./assets/rawstar.svg" alt="Minha linda imagem em SVG" class="fav svg">
+  //               </td>
+  //               <td class="descripition">${task.description}</td>
+  //               <td class="date-initial">${task.date_i}</td>
+  //               <td class="date-initial">${task.date_f}</td>
+  //               <td onclick="Task.remove(${index})">
+  //                   <img src="./assets/minus.svg" alt="Remover Tarefa">
+  //               </td>
+  //       `;
+  //   return html;
+  // },
   clearTask() {
     DOM.tasksContainer.innerHTML = "";
   },
