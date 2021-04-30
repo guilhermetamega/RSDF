@@ -45,6 +45,12 @@ const Task = {
     Storage.set(tasks);
     App.reload();
   },
+  done(index) {
+    var tasks = Task.all;
+    tasks[index].done = !tasks[index].done;
+    Storage.set(tasks);
+    App.reload();
+  },
 };
 
 const Counter = {
@@ -61,16 +67,34 @@ const Counter = {
     }, 0);
     return favorites;
   },
+  doneCounter() {
+    var tasks = Task.all;
+    var dones = tasks.reduce((total, valor) => {
+      if (valor.done === true) {
+        return total + 1;
+      }
+      return total;
+    }, 0);
+    return dones;
+  },
 };
 
 const DOM = {
   tasksContainer: document.querySelector("#data-table tbody"),
   addTask(task, index) {
     const tr = document.createElement("tr");
-    const image = task.fav ? "./assets/yellowStar.svg" : "./assets/rawstar.svg";
+    const image_star = task.fav
+      ? "./assets/yellowStar.svg"
+      : "./assets/rawstar.svg";
+    const image_done = task.done
+      ? "./assets/markedCheckBox.svg"
+      : "./assets/unmarkCheckBox.svg";
     const html = `
                 <td>
-                <img onclick="Task.star(${index})" src="${image}" alt="Favorito" class="svg star">
+                <img onclick="Task.done(${index})" src="${image_done}" alt="Tarefa Realizada" class="svg done">
+                </td>
+                <td>
+                <img onclick="Task.star(${index})" src="${image_star}" alt="Favorito" class="svg star">
                 </td>
                 <td class="descripition">${task.description}</td>
                 <td class="date-initial">${task.date_i}</td>
@@ -89,9 +113,8 @@ const DOM = {
   },
   updateBalance() {
     document.getElementById("totalDisplay").innerHTML = Counter.totalTasks();
-    document.getElementById(
-      "mainTasksDisplay"
-    ).innerHTML = Counter.starCounter();
+    document.getElementById("mainTasksDisplay").innerHTML = Counter.starCounter();
+    document.getElementById("completeTasksDisplay").innerHTML = Counter.doneCounter();
   },
 };
 
@@ -117,6 +140,7 @@ const Form = {
       date_i: Form.date_i.value,
       date_f: Form.date_f.value,
       fav: false,
+      done: false,
     };
   },
 
@@ -132,7 +156,7 @@ const Form = {
   },
 
   formatValues() {
-    let { description, date_i, date_f, fav } = Form.getValues();
+    let { description, date_i, date_f, fav, done } = Form.getValues();
     date_i = Utils.formatDate_i(date_i);
     date_f = Utils.formatDate_f(date_f);
     return {
@@ -140,6 +164,7 @@ const Form = {
       date_i,
       date_f,
       fav,
+      done,
     };
   },
 
