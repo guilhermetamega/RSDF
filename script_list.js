@@ -45,6 +45,7 @@ const Task = {
     Storage.set(tasks);
     App.reload();
   },
+  //Marca como concluiído ou não
   done(index) {
     var tasks = Task.all;
     tasks[index].done = !tasks[index].done;
