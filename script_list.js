@@ -38,6 +38,7 @@ const Task = {
     Task.all.splice(index, 1);
     App.reload();
   },
+  //Seta a imagem com estrela cheia ou vazia
   favImage() {
     var list = document.querySelector("tbody");
     list.addEventListener(
@@ -54,7 +55,7 @@ const Task = {
       false
     );
   },
-
+  //Adiciona ou remove a estrela com o clique
   star() {
     var list = document.querySelector("tbody");
     list.addEventListener(
@@ -67,7 +68,6 @@ const Task = {
       false
     );
     Task.favImage();
-    localStorage.setItem("teste:teste", Task.stars);
   },
 };
 
@@ -136,12 +136,14 @@ const Form = {
   description: document.querySelector("input#task"),
   date_i: document.querySelector("input#date-initial"),
   date_f: document.querySelector("input#date-final"),
+  fav: 0,
 
   getValues() {
     return {
       description: Form.description.value,
       date_i: Form.date_i.value,
       date_f: Form.date_f.value,
+      fav: Form.fav.value,
     };
   },
 
@@ -157,13 +159,14 @@ const Form = {
   },
 
   formatValues() {
-    let { description, date_i, date_f } = Form.getValues();
+    let { description, date_i, date_f, fav } = Form.getValues();
     date_i = Utils.formatDate_i(date_i);
     date_f = Utils.formatDate_f(date_f);
     return {
       description,
       date_i,
       date_f,
+      fav,
     };
   },
 
