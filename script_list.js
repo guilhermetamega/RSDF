@@ -38,36 +38,12 @@ const Task = {
     Task.all.splice(index, 1);
     App.reload();
   },
-  //Seta a imagem com estrela cheia ou vazia
-  favImage() {
-    var list = document.querySelector("tbody");
-    list.addEventListener(
-      "click",
-      function (ev) {
-        if ((ev.target.tagName = "img")) {
-          if (ev.target.matches(".fav")) {
-            ev.target.src = "./assets/yellowStar.svg";
-          } else {
-            ev.target.src = "./assets/rawStar.svg";
-          }
-        }
-      },
-      false
-    );
-  },
   //Adiciona ou remove a estrela com o clique
-  star() {
-    var list = document.querySelector("tbody");
-    list.addEventListener(
-      "click",
-      function (ev) {
-        if ((ev.target.tagName = "img")) {
-          ev.target.classList.toggle("fav");
-        }
-      },
-      false
-    );
-    Task.favImage();
+  star(index) {
+    var tasks = Task.all;
+    tasks[index].fav = !tasks[index].fav;
+    Storage.set(tasks);
+    App.reload();
   },
 };
 
@@ -75,15 +51,26 @@ const Counter = {
   totalTasks() {
     return Task.all.length;
   },
+  starCounter() {
+    var tasks = Task.all;
+    var favorites = tasks.reduce((total, valor) => {
+      if (valor.fav === true) {
+        return total + 1;
+      }
+      return total;
+    }, 0);
+    return favorites;
+  },
 };
 
 const DOM = {
   tasksContainer: document.querySelector("#data-table tbody"),
   addTask(task, index) {
     const tr = document.createElement("tr");
+    const image = task.fav ? "./assets/yellowStar.svg" : "./assets/rawstar.svg";
     const html = `
                 <td>
-                <img onclick = "Task.star()" src="./assets/rawstar.svg" alt="Favorito" class="svg star">
+                <img onclick="Task.star(${index})" src="${image}" alt="Favorito" class="svg star">
                 </td>
                 <td class="descripition">${task.description}</td>
                 <td class="date-initial">${task.date_i}</td>
@@ -97,27 +84,14 @@ const DOM = {
 
     DOM.tasksContainer.appendChild(tr);
   },
-  //Função que é responsável por criar a transação no html
-  // innerHTMLTask(task, index) {
-  //   //Ao se usar ${} dentro de `` pode-se puxar variáveis de fora de um "texto"
-  //   const html = `
-  //               <td onclick = "Task.favImage()">
-  //               <img src="./assets/rawstar.svg" alt="Minha linda imagem em SVG" class="fav svg">
-  //               </td>
-  //               <td class="descripition">${task.description}</td>
-  //               <td class="date-initial">${task.date_i}</td>
-  //               <td class="date-initial">${task.date_f}</td>
-  //               <td onclick="Task.remove(${index})">
-  //                   <img src="./assets/minus.svg" alt="Remover Tarefa">
-  //               </td>
-  //       `;
-  //   return html;
-  // },
   clearTask() {
     DOM.tasksContainer.innerHTML = "";
   },
   updateBalance() {
     document.getElementById("totalDisplay").innerHTML = Counter.totalTasks();
+    document.getElementById(
+      "mainTasksDisplay"
+    ).innerHTML = Counter.starCounter();
   },
 };
 
@@ -136,14 +110,13 @@ const Form = {
   description: document.querySelector("input#task"),
   date_i: document.querySelector("input#date-initial"),
   date_f: document.querySelector("input#date-final"),
-  fav: 0,
 
   getValues() {
     return {
       description: Form.description.value,
       date_i: Form.date_i.value,
       date_f: Form.date_f.value,
-      fav: Form.fav.value,
+      fav: false,
     };
   },
 
